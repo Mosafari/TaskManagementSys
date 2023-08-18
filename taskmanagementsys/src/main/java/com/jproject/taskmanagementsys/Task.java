@@ -46,4 +46,18 @@ public class Task {
     public String getStatus() {
         return status;
     }
+    
+//    Setter Methods:
+//    Setter methods allow you to modify the values of the attributes of your entity objects.
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
