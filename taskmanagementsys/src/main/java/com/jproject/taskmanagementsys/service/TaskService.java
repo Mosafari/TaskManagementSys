@@ -1,7 +1,7 @@
 package com.jproject.taskmanagementsys.service;
 
 import com.jproject.taskmanagementsys.Task;
-import com.jproject.taskmanagementsys.TaskRepository;
+import com.jproject.taskmanagementsys.repository.TaskRepository;
 
 import java.util.List;
 
@@ -42,7 +42,12 @@ public class TaskService {
         return null;
     }
 
-    public void deleteTask(Long taskId) {
-        taskRepository.deleteById(taskId);
+    public String deleteTask(Long taskId) {
+    	Task existingTask = getTaskById(taskId);
+        if (existingTask != null) {
+        	taskRepository.deleteById(taskId);
+        	return "Succesfull!";
+        }
+        return "Dosen't Exist";
     }
 }
