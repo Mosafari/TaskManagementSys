@@ -1,18 +1,18 @@
 package com.jproject.taskmanagementsys.service;
 
-import com.jproject.taskmanagementsys.Task;
-import com.jproject.taskmanagementsys.repository.TaskRepository;
-
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jproject.taskmanagementsys.model.Task;
+import com.jproject.taskmanagementsys.repository.TaskRepository;
+
+// dont implements iservice 
 @Service
 public class TaskService {
     private final TaskRepository taskRepository;
 
-    @Autowired
+    
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
