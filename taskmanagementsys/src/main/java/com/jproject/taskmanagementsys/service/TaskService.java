@@ -34,6 +34,7 @@ public class TaskService {
     public Task updateTask(Long taskId, Task updatedTask) {
         Task existingTask = getTaskById(taskId);
         if (existingTask != null) {
+        	existingTask.setEmployee(updatedTask.getEmployee());
             existingTask.setTitle(updatedTask.getTitle());
             existingTask.setDescription(updatedTask.getDescription());
             existingTask.setStatus(updatedTask.getStatus());

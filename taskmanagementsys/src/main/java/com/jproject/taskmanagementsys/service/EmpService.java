@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.jproject.taskmanagementsys.model.Employee;
+import com.jproject.taskmanagementsys.model.Task;
 import com.jproject.taskmanagementsys.repository.EmpRepository;
 
 @Service
@@ -27,13 +28,19 @@ public class EmpService implements IService<Employee>{
 
 	@Override
 	public Employee getById(Long id) {
-		return empRepository.getById(id);
+		return empRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public Employee updateTask(Long id, Employee updatedType) {
-
-		return null;
+		Employee existingTask = getById(id);
+        if (existingTask != null) {
+            existingTask.setEmail(updatedType.getEmail());
+            existingTask.setFirstName(updatedType.getFirstName());
+            existingTask.setLastName(updatedType.getLastName());
+            return empRepository.save(existingTask);
+        }
+        return null;
 	}
 
 	@Override

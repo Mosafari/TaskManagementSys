@@ -1,5 +1,9 @@
 package com.jproject.taskmanagementsys.model;
 
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +23,10 @@ public class Task {
     
     private String description;
     @ManyToOne
-    @JoinColumn(name="employee_id", nullable=false, unique = true)
+    @JoinColumn(name="employee_id", unique = true)
     private Employee employee;
-    
+    @Column(name = "Status")
+    @ColumnDefault("'Created'")
     private String status;
 
     // Constructors, getters, setters
