@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Employee Management</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iK7tWLAe/MMHJs/Z9SR2CXalZHJ7DP0iAaWr+flFW93/DX4F5OJ79uo" crossorigin="anonymous">
+
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script th:inline="javascript">
@@ -38,12 +44,67 @@
             });
         });
     </script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ADD8E6, #B0E0E6);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 8px 12px;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Employee Management</h1>
-    
-    <table border="1">
-        <thead>
+
+    <table class="table">
+        <thead class="thead-light">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -58,14 +119,16 @@
                 <td th:text="${employee.firstName}"></td>
                 <td th:text="${employee.lastName}"></td>
                 <td th:text="${employee.email}"></td>
-                <td>
-                    <a th:href="@{/home/employee/{id}/edit(id=${employee.id})}">Edit</a>
-                    <a href="#" class="delete-link" th:data-employee-id="${employee.id}">Delete</a>
+                <td class="actions">
+                    <a th:href="@{/home/employee/{id}/edit(id=${employee.id})}" class="btn btn-primary">Edit</a>
+                    <a href="#" class="delete-link btn btn-danger" th:data-employee-id="${employee.id}">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
-    
-    <a th:href="@{/home/employee/create}">Add New Employee</a>
+
+    <a th:href="@{/home/employee/create}" class="btn btn-secondary">Add New Employee</a>
+    <a th:href="@{/home/tasks}" class="btn btn-secondary">Tasks</a>
 </body>
+
 </html>
