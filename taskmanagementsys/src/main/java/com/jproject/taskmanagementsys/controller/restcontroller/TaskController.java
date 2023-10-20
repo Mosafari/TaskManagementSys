@@ -1,4 +1,4 @@
-package com.jproject.taskmanagementsys.controller;
+package com.jproject.taskmanagementsys.controller.restcontroller;
 
 import java.util.List;
 
