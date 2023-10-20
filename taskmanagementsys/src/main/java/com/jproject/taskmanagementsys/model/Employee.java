@@ -27,7 +27,7 @@ public class Employee {
 	@Column(name="emp_tasks")
 	@OneToMany(mappedBy = "employee")
 	private Set<Task> tasks;
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String email;
 	
 	public Employee() {
