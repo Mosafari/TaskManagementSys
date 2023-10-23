@@ -2,7 +2,6 @@ package com.jproject.taskmanagementsys.model;
 
 import java.util.Set;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -73,8 +72,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", task=" + tasks
-				+ ", email=" + email + "]";
+		return ""+id;
 	}
 	
 	

@@ -22,7 +22,7 @@ public class Task {
     @Column(nullable = false)
     private String description;
     @ManyToOne
-    @JoinColumn(name="employee_id", unique = true)
+    @JoinColumn(name="employee_id")
     private Employee employee;
     @Column(name = "Status")
     @ColumnDefault("'Created'")

@@ -86,6 +86,8 @@ public class HomeController {
 	public String editTask(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("task", taskService.getTaskById(id));
 		model.addAttribute("id", id);
+		model.addAttribute("currentEmp", taskService.getTaskById(id).getEmployee());
+		model.addAttribute("employees", empService.getAll());
 		return "edittask";
 	}
 	
@@ -95,6 +97,7 @@ public class HomeController {
 			return "createtask";
 		}
 		else {
+			System.out.println(task);
 		taskService.updateTask(id, task);
 		return tasksShow(model);
 		}
