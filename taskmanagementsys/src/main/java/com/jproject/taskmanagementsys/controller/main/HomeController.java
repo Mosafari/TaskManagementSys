@@ -103,8 +103,9 @@ public class HomeController {
 		}
 	}
 	
-	@GetMapping("/task/create")
+	@GetMapping("/task/new")
 	public String createTaskPage( Model model) {
+		model.addAttribute("employees", empService.getAll());
 	
 		return "createtask" ;
 	}

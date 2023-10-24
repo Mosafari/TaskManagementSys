@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Update Task</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iK7tWLAe/MMHJs/Z9SR2CXalZHJ7DP0iAaWr+flFW93/DX4F5OJ79uo" crossorigin="anonymous">
+
+    <!-- Thymeleaf inline JavaScript to get the context path -->
+    <script th:inline="javascript">
+        var contextPath = /*[[@{/}]]*/ '';
+    </script>
+
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ADD8E6, #B0E0E6);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Task</h1>
+
+    <form th:action="@{/home/task/add}" method="post" modelAttribute="task">
+        <input type="hidden" />
+
+        <label>Title: <input type="text" name="title" /></label>
+        <label>Description: <input type="text" name="description" /></label>
+        <label>Status: <input type="text"  name="status"/></label>
+
+        <!-- Dropdown for Employee Assignment -->
+        <label>Assign to Employee:
+            <select modelAttribute="employee" name="employee">
+                <option th:each="employee : ${employees}" th:value="${employee.id}"
+                    th:text="${employee.firstName + ' ' + employee.lastName}" ></option>
+            </select>
+        </label>
+
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    </form>
+
+    <a th:href="@{/home/tasks}" class="btn btn-secondary">Back to Tasks</a>
+</body>
+
+</html>
