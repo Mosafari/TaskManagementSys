@@ -1,0 +1,12 @@
+com\jproject\taskmanagementsys\service\IService.class
+com\jproject\taskmanagementsys\service\TaskService.class
+com\jproject\taskmanagementsys\TaskmanagementsysApplication.class
+com\jproject\taskmanagementsys\controller\restcontroller\EmpController.class
+com\jproject\taskmanagementsys\model\Employee.class
+com\jproject\taskmanagementsys\controller\main\HomeController.class
+com\jproject\taskmanagementsys\exception\ResourceNotFoundException.class
+com\jproject\taskmanagementsys\controller\restcontroller\TaskController.class
+com\jproject\taskmanagementsys\model\Task.class
+com\jproject\taskmanagementsys\repository\EmpRepository.class
+com\jproject\taskmanagementsys\repository\TaskRepository.class
+com\jproject\taskmanagementsys\service\EmpService.class
